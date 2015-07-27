@@ -1,6 +1,8 @@
+FILES=~/knowlab_real/wikipedia_projects/liberal_articles/*
+for f in $FILES
 
-for item in 
 do
-	python coedit.py $item
-	echo $item
+	7z e $f
+	python coedit.py ${f%.7z}
+	rm ${f%.7z}
 done
