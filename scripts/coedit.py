@@ -15,7 +15,7 @@ def load_csv(filename):
     return soups
     
 def main(filename):
-	out = open("liberal_editors.txt", 'ab')
+	out = open("science_editors.txt", 'ab')
 	wb = csv.writer(out)
 	editors = list(set(load_csv(filename)))
 	wb.writerow([filename[11:-4]] + editors)

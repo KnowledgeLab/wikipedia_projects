@@ -3,6 +3,6 @@ for f in $FILES
 
 do
 	7z e $f
-	python coedit.py ${f%.7z}
+	python anon.py ${f%.7z}
 	rm ${f%.7z}
 done
