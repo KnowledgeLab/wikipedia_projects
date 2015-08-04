@@ -1,4 +1,4 @@
-FILES=~/knowlab_real/wikipedia_projects/science_articles/*
+FILES=~/knowlab_real/wikipedia_projects/conservative_articles/*.7z
 for f in $FILES
 
 do
