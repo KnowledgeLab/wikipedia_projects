@@ -25,14 +25,17 @@ def load_clean(filename):
 
 # <codecell>
 
-full = load_clean('../processed_data/cleaned_editors_full.txt')
-
+full = load_clean('../processed_data/cleaned_editors_small.txt')
+print len(full)
 # <codecell>
 
 comb = itertools.combinations(full.keys(), 2)
 temp = []
 
+#i = 0
 for tup in comb:
+#    print i
+#    i = i + 1
     first = full[tup[0]][1]
     second = full[tup[1]][1]
     weight = len(set(first).intersection(set(second)))
@@ -41,8 +44,12 @@ for tup in comb:
 
 # <codecell>
 
-len(temp)
-
 # <codecell>
+
+out = open('../processed_data/edges.txt', 'wb')
+wb = csv.writer(out)
+for item in temp:
+    wb.writerow(item)
+out.close()
 
 
