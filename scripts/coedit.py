@@ -10,12 +10,16 @@ def load_csv(filename):
     soups = []
     fil = open(filename, 'rb')
     reader = csv.reader(fil, delimiter='|')
-    for row in reader:
-        soups.append(row[1])
+    prev = 0
+    for row in reversed(list(reader)):
+	curr = int(row[2][1:-7])
+	if abs(curr - prev) > 50: 
+            soups.append(row[1])
+	prev = curr
     return soups
     
 def main(filename):
-	out = open("../processed_data/conservative_editors.txt", 'ab')
+	out = open("../processed_data/liberal_editors_wo_m.txt", 'ab')
 	wb = csv.writer(out)
 	editors = list(set(load_csv(filename)))
 	wb.writerow([filename[11:-4]] + editors)
