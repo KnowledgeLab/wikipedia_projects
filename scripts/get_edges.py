@@ -17,7 +17,7 @@ def load_clean(filename):
         soups.append([row[0], row[1], row[2]])
     return soups
     
-edges = load_clean('../processed_data/edges_wo_m.txt')
+edges = load_clean('../processed_data/edges_wo_active.txt')
 print len(edges)
 print "edges loaded"
 
@@ -34,7 +34,7 @@ def load_ed(filename):
         soups[row[0]] = [row[1], row[2:]]
     return soups
 
-small = load_ed('../processed_data/cleaned_editors_small_wo_m.txt')
+small = load_ed('../processed_data/cleaned_editors_small_wo_active.txt')
 
 for node in G:
     if small[node][0] == 'liberal':
@@ -48,6 +48,6 @@ for node in G:
 
 print "nodes labelled"
 
-nx.write_graphml(G,'../wom.graphml')
+nx.write_graphml(G,'../woa.graphml')
 
 print "done"

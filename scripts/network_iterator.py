@@ -25,7 +25,7 @@ def load_clean(filename):
 
 # <codecell>
 
-full = load_clean('../processed_data/cleaned_editors_small_wo_m.txt')
+full = load_clean('../processed_data/cleaned_editors_small_wo_active.txt')
 print len(full)
 # <codecell>
 
@@ -46,10 +46,8 @@ for tup in comb:
 
 # <codecell>
 
-out = open('../processed_data/edges_wo_m.txt', 'wb')
+out = open('../processed_data/edges_wo_active.txt', 'wb')
 wb = csv.writer(out)
 for item in temp:
     wb.writerow(item)
 out.close()
-
-
